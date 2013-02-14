@@ -1,0 +1,43 @@
+<registry>
+
+    <records interface="msd.landingpage.interfaces.ILandingpageSettings" />
+
+	<record name="msd.landingpage.interfaces.ILandingpageSettings.colours" interface="msd.landingpage.interfaces.ILandingpageSettings">
+		<value purge="true">
+			<element>highlight|Plain Links Block|plainlinksblock</element>
+			<element>highlight|White|white</element>
+			<element>highlight|Cornflower|cornflower</element>
+			<element>highlight|Teal|teal</element>
+			<element>highlight|Jade|jade</element>
+			<element>highlight|Moss|moss</element>
+			<element>highlight|Lime|lime</element>
+			<element>highlight|Pumpkin|pumpkin</element>
+			<element>highlight|Ruby|ruby</element>
+			<element>highlight|Clay|clay</element>
+			<element>highlight|Cornflower with Grey|cornflower grey</element>
+			<element>highlight|Teal with Grey|teal grey</element>
+			<element>highlight|Jade with Grey|jade grey</element>
+			<element>highlight|Moss with Grey|moss grey</element>
+			<element>highlight|Lime with Grey|lime grey</element>
+			<element>highlight|Pumpkin with Grey|pumpkin grey</element>
+			<element>highlight|Ruby with Grey|ruby grey</element>
+			<element>highlight|Clay with Grey|clay grey</element>
+			<element>carousel|Black Overlay|black</element>
+			<element>carousel|White Overlay|white</element>
+		</value>
+	</record>
+	
+	<record name="msd.landingpage.interfaces.ILandingpageSettings.snippets" interface="msd.landingpage.interfaces.ILandingpageSettings">
+		<value purge="true">
+			<element>carousel|Tabbed Splash|tabbed</element>
+			<element>carousel|Slideshow|slideshow</element>
+			<element>carousel|Static Slideshow|static</element>
+			<element>listing|News Listing|news</element>
+			<element>listing|Seminars Listing|seminars</element>
+			<element>listing|Folder Listing|folder</element>
+			<element>listing|Events Listing|events</element>
+			<element>listing|Jobs Listing|jobs</element>
+			<element>listing|News Highlight Listing|news_highlight</element>
+		</value>
+	</record>
+</registry>

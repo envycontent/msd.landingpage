@@ -1,0 +1,37 @@
+<metal:banners use-macro="context/@@banner-alt-static/macros/banners">
+    <metal:banner fill-slot="banner_body">
+         <div tal:define="blocksize python:banner.getSpanSize(settings.width)">
+             
+             <div tal:define="imagesize python:blocksize-blocksize/3"
+                  tal:attributes="class string:layoutcolumn span-${imagesize}">
+                 <a tal:condition="python:'image' in elements and blocksize > 0"
+                    tal:attributes="href banner/getRemoteUrl;
+                                   title banner/Title;"
+                    class="">
+
+                    <img tal:define="img_size python:blocksize-blocksize/3" tal:attributes="src string:${banner/absolute_url}/image_image-${img_size}" />
+                 </a>
+                 <!-- <div tal:condition="python:'title' in elements"
+                                       tal:attributes="class string:carousel-text span-${imagesize}">
+                                       <a  tal:attributes="href banner/getRemoteUrl;"
+                                           tal:content="banner/Title"
+                                           class="carousel-title">
+                                           Banner title
+                                       </a>
+                                  </div> -->
+             </div>
+             
+             <div tal:define="text banner/getText;
+                              textsize python:blocksize/3"
+                  tal:attributes="class string:layoutcolumn last span-${textsize}">
+                  <div tal:condition="python:text and 'text' in elements"
+                         tal:omit-tag=""
+                         tal:content="structure text"
+                         class="">
+                             Body text
+                  </div>
+             </div> 
+             
+        </div>
+    </metal:banner>
+</metal:banners>

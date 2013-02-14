@@ -1,0 +1,41 @@
+<metal:portlet define-macro="portlet">
+<div class="portlet portletCollection"
+    i18n:domain="plone">
+
+    <h2>Vacancies</h2>
+    <tal:jobs tal:repeat="obj results">
+    <div class="job"
+        tal:define="item_icon python:getIcon(obj);
+                    item_salary obj/getSalary;
+                    item_closingdate obj/getClosingDate; 
+                    item_closingdate obj/getClosingDate|nothing; 
+                    DateTime python:modules['DateTime'].DateTime;
+                    item_day python:item_closingdate.strftime('%d'); 
+                    item_month python:item_closingdate.strftime('%b'); 
+                    item_year python:item_closingdate.strftime('%y');
+           ">
+        <h3><a href="#"
+           tal:attributes="href obj/getURL;
+                           title obj/Description">
+            <span tal:replace="obj/pretty_title_or_id">
+             Title
+            </span>
+    
+        </a></h3>
+         <div class="jobdetails">
+         <strong>Grade</strong> : <span tal:condition="item_salary" tal:content="python:item_salary">Salary</span><br />
+         <strong>Closing Date</strong> : <span tal:condition="item_closingdate" tal:content="python:item_day + ' ' + item_month + ' '+ item_year">Closing date</span>
+         </div>
+    </div>
+    </tal:jobs>
+    
+    <div id="allvacancies" tal:condition="show_more">
+        <span>
+        <a tal:attributes="href collection_url" i18n:translate="more_url">
+             All Vacancies
+             </a>
+        </span>
+    </div>
+
+</div>
+</metal:portlet>

@@ -1,0 +1,29 @@
+<tal:listingblock tal:define="   link context/getLink|nothing;
+								 extraStyles view/getCSSClasses;
+                                 blueprintStyles    view/getBlueprintCSSClasses;
+         						 colourStyle context/getColour;
+		                         snippet context/getSnippet;
+								 ">
+	<div tal:attributes="class string:listingblock ${blueprintStyles} ${colourStyle}">
+		<tal:title> 
+			<a tal:condition="link" tal:attributes="href link">
+		       <h2 tal:content="context/Title" />
+			</a>
+		    <span tal:condition="not:link">
+		       <h2 tal:content="context/Title" />
+			</span>
+		</tal:title>
+		
+        <tal:listing define="results view/results;
+                             use_view_action site_properties/typesUseViewActionInListings|python:();">
+        
+        <metal:snippets use-macro="here/listing_block_snippets/macros/snippets" />
+
+		</tal:listing>
+		<div tal:condition="view/showEditLink" class="edit-block">
+	        <img src="edit.png" alt="" />
+	        <a tal:attributes="href string:${context/absolute_url}/edit"
+	            tal:content="structure string: Edit block <strong>${context/Title}</strong>">Edit</a>
+	    </div>
+    </div>
+</tal:listingblock>

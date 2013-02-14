@@ -1,0 +1,57 @@
+<tal:hightlightblock tal:define="hasImage context/getImage|nothing;
+                                 link context/getLink|nothing;
+				                 extraStyles view/getCSSClasses;
+				                 blueprintStyles view/getBlueprintCSSClasses;
+				                 colourStyle context/getColour;
+				                 showTitle context/getShowTitle;
+                                 config view/config;
+								 ">
+  <div tal:attributes="class string:search ${blueprintStyles} ${colourStyle};
+                       id context/getId">
+	<tal:title condition="showTitle"> 
+	  <a tal:omit-tag="not:link" tal:attributes="href link">
+		<h2 tal:content="context/Title" />
+	  </a>
+	</tal:title>
+
+
+	<div class="searchForm">		
+                <tal:browse condition="python:config['mode'] == 0">
+                  <select name="" tal:attributes="name string:browse-${context/getId};id context/getUnique_id;"
+                          onchange="window.location.href=this.options[this.selectedIndex].value">
+                    <option value="" tal:content="config/label"/>
+                    <tal:block repeat="item config/urls">
+                      <option tal:attributes="value item/link"
+                              tal:content="item/title"/>
+                    </tal:block>
+                  </select>
+                </tal:browse>
+
+                <tal:search condition="python:config['mode'] == 1">
+                    <form method="post" tal:attributes="name config/form_name;action config/form_action;class config/form_class;">
+                      <input class="searchField inputLabel"
+                             type="text" tal:attributes="name config/field_name;
+                                                         title config/label;
+                                                         id config/unique_id;" />
+
+                      <tal:criteria repeat="item config/criteria">
+                        <input type="hidden" tal:attributes="name item/s_key;
+                                                             value item/s_value;" />
+                      </tal:criteria>
+
+                      <input type="submit" tal:condition="config/search_button" tal:attributes="value config/search_button"/>
+                      <a href="" class="" style="display:none"
+                          tal:attributes="href config/form_action;class config/search_link_class"
+                          tal:content="config/search_button|string:Search link">Search</a>
+                    </form>
+                </tal:search>
+	  <div tal:condition="view/showEditLink" class="edit-block">
+	    <img src="edit.png" alt="" />
+	    <a tal:attributes="href string:${context/absolute_url}/edit"
+	       tal:content="structure string: Edit block <strong>${context/Title}</strong>">Edit</a>
+	  </div>
+	</div>
+
+  </div>
+
+</tal:hightlightblock>

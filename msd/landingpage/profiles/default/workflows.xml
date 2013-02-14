@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+ <property
+    name="title">Contains workflow definitions for your portal</property>
+ <bindings>
+  <!-- Bind nothing for there content types -->
+  <type type_id="BigBlock"/>
+  <type type_id="HighlightBlock"/>
+  <type type_id="SearchBlock"/>
+  <type type_id="ListingBlock" />
+  <type type_id="CarouselBlock" />
+  <type type_id="CarouselBlockImage" />
+  <type type_id="SplashBlock" />
+ </bindings>
+</object>

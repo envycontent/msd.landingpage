@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+		<div class="layoutcolumn span-18">
+			<div tal:content="structure view/blocks/0" />
+			<div tal:content="structure view/blocks/1" />
+			<div tal:content="structure view/blocks/2" />
+		</div>
+		<div tal:content="structure view/blocks/3" />
+
+        <div class="visualClear"><!-- --></div>
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+ <object name="msd_landingpage"
+    meta_type="Filesystem Directory View"
+    directory="msd.landingpage:skins/msd_landingpage"/>
+ 
+  <skin-path name="*">
+  <layer name="msd_landingpage"
+     insert-after="custom"/>
+ </skin-path>
+
+</object>

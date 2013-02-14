@@ -1,0 +1,96 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="msd.landingpage">
+
+  <!-- configure your content components here -->
+  
+  <!-- -*- extra stuff goes here -*- -->
+  <class class=".carouselblockimage.CarouselBlockImage">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ICarouselBlockImage"
+        />
+  </class>
+  <class class=".carouselblock.CarouselBlock">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ICarouselBlock"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.ICarouselBlock"
+        />
+  </class>
+  <class class=".splashblock.SplashBlock">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ISplashBlock"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.ISplashBlock"
+        />
+  </class>
+  <class class=".listingblock.ListingBlock">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IListingBlock"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.IListingBlock"
+        />
+  </class>
+  <class class=".highlightblock.HighlightBlock">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IHighlightBlock"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.IHighlightBlock"
+        />
+  </class>
+  <class class=".searchblock.SearchBlock">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ISearchBlock"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.ISearchBlock"
+        />
+  </class>
+  <class class=".landingpage.LandingPage">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ILandingPage"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.ILandingPage"
+        />
+  </class>
+  <class class=".littleblock.LittleBlock">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ILittleBlock"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.ILittleBlock"
+        />
+  </class>
+  <class class=".bigblock.BigBlock">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IBigBlock"
+        />
+    <require
+        permission="cmf.ModifyPortalContent"
+        set_schema="..interfaces.IBigBlock"
+        />
+  </class>
+
+</configure>

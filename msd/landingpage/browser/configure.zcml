@@ -1,0 +1,82 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:carousel="http://namespaces.plone.org/carousel"
+    i18n_domain="msd.landingpage">
+
+  <include package="plone.app.contentmenu" />
+  <adapter factory=".carouselsettings.LandingPageCarouselSettingsFactory" />
+  <adapter factory=".carouselsettings.CarouselBlock" />
+
+  <!-- Resource directory for stylesheets --> 
+  <browser:resourceDirectory
+      name="msd.landingpage.js" 
+      directory="js" />
+
+  <browser:page
+    for="..interfaces.ICarouselBlock"
+    name="edit-carouselblock"
+    class=".carouselsettings.LandingPageCarouselSettingsView"
+    permission="cmf.ManagePortal"
+    />
+
+  <!-- -*- extra stuff goes here -*- -->
+
+  <browser:page
+      for="msd.landingpage.interfaces.ILandingPage"
+      name="melipona_layout"
+      class=".layout.LandingpageLayoutPolicy"
+      allowed_interface="msd.melipona.browser.interfaces.IMeliponaLayoutPolicy"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      name="landingpage-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      permission="cmf.ManagePortal"
+      class=".controlpanel.LandingpageControlPanelView"
+        />
+  
+    <class class="msd.landingpage.interfaces.ILandingPage">
+           <allow interface="msd.melipona.interfaces.IHasNoBreadcrumbs" />
+    </class>
+  
+    <include package="Products.Carousel" />
+
+      <browser:page
+        for="Products.Carousel.interfaces.ICarousel"
+        name="banner-alt-static"
+        template="banner_templates/banner-alt.pt"
+        permission="zope.Public"
+        />
+      
+      <carousel:bannerblock
+        name="banner-default-singleimage"
+        template="banner_templates/banner-singleimage.pt"
+        title="Single Image"
+        />	
+
+      <carousel:bannerblock
+        name="banner-default-wide"
+        template="banner_templates/banner-default.pt"
+        title="Slide show with arrows"
+        />	
+
+    <carousel:bannerblock
+   	  name="banner-slideshow-text-right"
+   	  template="banner_templates/banner-slideshow-text-right.pt"
+      title="Slide show and text right"
+   	  />
+    <carousel:bannerblock
+      name="banner-slideshow-text-left"
+      template="banner_templates/banner-slideshow-text-left.pt"
+      title="Slide show and text left"
+      />
+     
+    <carousel:bannerblock
+        name="banner-slideshow-tabbed"
+        template="banner_templates/banner-slideshow-tabbed.pt"
+        title="Tabbed Slideshow"
+        />
+
+</configure>

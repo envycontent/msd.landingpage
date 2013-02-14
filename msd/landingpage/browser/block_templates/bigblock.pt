@@ -1,0 +1,18 @@
+
+<div tal:attributes="class python: view.getCSSClasses()"
+	 tal:define="addURL string:${context/absolute_url}/folder_factories;
+	             name string:${context/Title}">
+
+	<div tal:replace="structure view/little_blocks" />
+		
+	<tal:edit-block tal:condition="view/showAddLink">        
+	       <div class="empty-block" tal:condition="not: view/hasBlocks">
+			<p tal:content="structure string:There is no content on <strong>${name}</strong> block yet." />			
+		  </div>
+	</tal:edit-block>
+	
+	<div tal:condition="view/showAddLink" class="add-new-block">
+	    <img src="add.png" alt="" />
+		<a tal:attributes="href addURL" tal:content="string: Add content to ${name}"></a>
+    </div>
+</div>

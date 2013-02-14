@@ -1,0 +1,26 @@
+<tal:hightlightblock tal:define="hasImage context/getImage|nothing;
+                                 link context/getLink|nothing;
+								 extraStyles view/getCSSClasses;
+								 blueprintStyles view/getBlueprintCSSClasses;
+								 colourStyle context/getColour;
+								 ">
+	<div tal:attributes="class string:splash-overlay ${blueprintStyles}">
+		
+		
+		        <img src="" tal:condition="hasImage"
+		            tal:attributes="src view/getWeightedImageUrl;
+		                            alt string:${context/Title}" />	
+		
+		
+			
+		    <div tal:content="structure context/getBody" 
+		         tal:attributes="class string:splash-overlay-text  ${colourStyle}"/>
+			
+			<div tal:condition="view/showEditLink" class="edit-block">
+	            <img src="edit.png" alt="" />
+	            <a tal:attributes="href string:${context/absolute_url}/edit"
+	                tal:content="structure string: Edit block <strong>${context/Title}</strong>">Edit</a>
+		    </div>
+    </div>
+
+</tal:hightlightblock>

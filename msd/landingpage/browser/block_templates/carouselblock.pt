@@ -1,0 +1,41 @@
+<tal:carouselblock tal:define="hasImage context/getImage|nothing;
+                                 link context/getLink|nothing;
+				extraStyles view/getCSSClasses;
+				blueprintStyles view/getBlueprintCSSClasses;
+				isAnon view/portal_state/anonymous;
+								 ">
+
+	<div tal:condition="view/available"
+	    tal:attributes="id view/element_id;
+	                    class string:carousel ${blueprintStyles} ${extraStyles}">
+	    <tal:banners tal:define="banners view/banners;"
+	        tal:condition="banners"
+	        tal:content="structure banners">
+	        Banners
+	    </tal:banners>
+	    <tal:pager tal:define="pager view/pager;"
+	        tal:condition="pager"
+	        tal:content="structure pager">
+	        Pager
+	    </tal:pager>
+        <script type="text/javascript" charset="utf-8" tal:content="string:
+                   (function ($$) {
+                       $$('#${view/element_id}').ploneCarousel({
+                           height: ${view/height},
+                           width: jq('#${view/element_id}').width(),
+                           transition: '${view/transition}',
+                           speed: ${view/speed},
+                           delay: ${view/delay}
+                       });
+                   })(jQuery);
+               ">
+               </script>
+        <div tal:condition="view/showEditLink" class="edit-block">
+	        <img src="edit.png" alt="" />
+	        <a tal:attributes="href string:${context/absolute_url}/view"
+	            tal:content="structure string: Edit block <strong>${context/Title}</strong>">Edit</a>
+	    </div>
+	</div>
+
+
+</tal:carouselblock>

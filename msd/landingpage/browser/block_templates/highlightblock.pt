@@ -1,0 +1,49 @@
+<tal:hightlightblock tal:define="hasImage context/getImage|nothing;
+                                 link context/getLink|nothing;
+				extraStyles view/getCSSClasses;
+				blueprintStyles view/getBlueprintCSSClasses;
+				colourStyle context/getColour;
+				showTitle context/getShowTitle;
+								 ">
+	<div tal:attributes="class string:highlight ${blueprintStyles} ${colourStyle};
+                         id context/getId">
+		<tal:title condition="showTitle"> 
+			<a tal:condition="link" tal:attributes="href link">
+		       <h2 tal:content="context/Title" />
+			</a>
+		    <span tal:condition="not:link">
+		       <h2 tal:content="context/Title" />
+			</span>
+		</tal:title>
+		
+		<a tal:condition="link" tal:attributes="href link">
+		        <img src="" tal:condition="hasImage"
+		            tal:attributes="src view/getWeightedImageUrl;
+		                            alt string:${context/Title}" />	
+		</a>
+		
+		<img src="" tal:condition="python: hasImage and not link"
+		tal:attributes="src view/getWeightedImageUrl;
+		                alt string:${context/Title}" />
+
+		<div class="highlighttext">		
+		    <div tal:replace="structure python:view.transformText(context.getBody())" />
+                        </div>
+                        
+                        <div class="highlightFooter" tal:define="footer_link context/getFooter_link;
+                            footer_title context/getFooter_title;"
+                            tal:condition="footer_title">
+                            <a tal:omit-tag="not:footer_link" tal:attributes="href footer_link"
+                                tal:content="footer_title"/>
+                        </div>
+
+                        <div>
+		      <div tal:condition="view/showEditLink" class="edit-block">
+	                   <img src="edit.png" alt="" />
+	                   <a tal:attributes="href string:${context/absolute_url}/edit"
+	                   tal:content="structure string: Edit block <strong>${context/Title}</strong>">Edit</a>
+		      </div>
+		</div>
+            </div>
+
+</tal:hightlightblock>

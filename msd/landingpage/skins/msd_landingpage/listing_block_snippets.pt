@@ -1,0 +1,242 @@
+<!--  untitled  
+     Created by  on 2010-11-03.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en-US" lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="">
+
+<body define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+<metal:listing_block_snippets define-macro="snippets">
+<tal:comment replace="nothing">Folder listing</tal:comment>
+<tal:snippet condition="python: snippet=='folder'">
+<ul class="folderlisting">
+<tal:repeat tal:repeat="item results">
+<tal:block tal:define="item_url item/getURL|item/absolute_url;
+                     item_id item/getId|item/id;
+                     item_title_or_id item/pretty_title_or_id;
+                     item_description item/Description;
+                     item_type item/portal_type;
+                     item_type_title item/Type;">
+
+  <li>
+      <a href="#"
+         tal:attributes="href item_url"
+         tal:content="item_title_or_id">
+          Item Title
+      </a>
+  </li>
+
+</tal:block>
+</tal:repeat>
+</ul>
+</tal:snippet>
+
+
+
+
+
+<tal:comment replace="nothing">jobs listing</tal:comment>
+<tal:snippet condition="python: snippet=='jobs'">
+
+<ul>
+<tal:repeat tal:repeat="item results">
+<tal:block  tal:define="item_salary item/getSalary;
+          			    item_closingdate item/getClosingDate|nothing;
+                        ">
+<li>
+<h3><a href="#" class="arrowtitle" tal:attributes="href item/getURL; 
+								title item/Description">
+<span tal:replace="item/pretty_title_or_id">Title</span></a></h3>
+<p tal:condition="item_salary"><strong>Grade</strong> : <span  tal:content="item_salary">Salary</span></p>
+
+<p tal:condition="item_closingdate"><strong>Closing Date :</strong> <span  tal:content="python: item_closingdate.strftime('%d %B %Y')">Closing date</span></p>
+</li>
+</tal:block>
+
+</tal:repeat>
+</ul>	    
+</tal:snippet>
+
+<tal:comment replace="nothing">news listing</tal:comment>
+<tal:snippet condition="python: snippet=='news'">
+<div  class="news">
+<ul> 
+	<tal:repeat tal:repeat="item results">
+    <tal:block tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+						   item_url item/getURL|item/absolute_url;
+                           item_id item/getId|item/id;
+                           item_title_or_id item/pretty_title_or_id;
+                           item_description item/Description;
+                           item_type item/portal_type;
+                           item_type_title item/Type;
+						   item_object python:item.getObject()">
+
+        <li>
+        
+            <h3><a href="#"
+               tal:attributes="href item_url"
+               tal:content="item_title_or_id">
+                Item Title
+            </a></h3>
+			<p> <a href="#" tal:attributes="href item/getURL;">
+	              <img 
+	                   tal:condition="exists:item_object/image_thumb"
+	                   tal:replace="structure python: path('nocall:item_object/tag')(scale='tile', css_class='newsimage')" />
+	          </a><span tal:replace="structure item_description" /> <a href="#"
+		                   tal:attributes="href item/getURL;
+		                                   title item/Description">Read more ...
+		              </a></p>	
+		  	
+        </li>
+
+    </tal:block>
+</tal:repeat> 
+</ul>
+</div> 
+</tal:snippet>
+
+
+<tal:comment replace="nothing">events listing</tal:comment>
+<tal:snippet condition="python: snippet=='events'">
+ <div class="events">
+ <ul> 
+ 	<tal:repeat tal:repeat="item results">
+        <tal:block tal:define="item_url item/getURL|item/absolute_url;
+                               item_id item/getId|item/id;
+                               item_title_or_id item/pretty_title_or_id;
+                               item_description item/Description;
+                               item_type item/portal_type;
+                               item_type_title item/Type;
+                      		   item_startdate item/start;
+                               item_formatted_startdate python:item_startdate.strftime('%d %B %Y');
+                               item_formatted_starttime python:item_startdate.strftime('%I:%M %p');">
+   
+
+            <li> 
+                <h3><a class="arrowtitle"
+                   tal:attributes="href item_url"
+                   tal:content="item_title_or_id">
+                    Item Title
+                </a></h3>
+                
+            	<p tal:content="structure item_description" /> 
+                <p  class="startdate" ><span tal:replace="item_formatted_startdate" /> - <span tal:replace="item_formatted_starttime"/> </p>
+		
+            </li>
+
+        </tal:block>
+    </tal:repeat> 
+</ul>
+</div> 
+</tal:snippet>
+
+<tal:comment replace="nothing">seminar listing</tal:comment>
+<tal:snippet condition="python: snippet=='seminars'">
+ <div  class="seminars">
+ <ul> 
+ 	<tal:repeat tal:repeat="item results">
+        <tal:block tal:define="item_url item/getURL|item/absolute_url;
+                               item_id item/getId|item/id;
+                               item_title_or_id item/pretty_title_or_id;
+                               item_description item/Description;
+                               item_speakers item/getSpeakers; 
+					           item_startdate item/start;
+                               item_formatted_startdate python:item_startdate.strftime('%d %B %Y');
+                               item_formatted_starttime python:item_startdate.strftime('%I:%M %p');">
+
+            <li>
+        		<h3 ><a href="#" class="arrowtitle"
+		           tal:attributes="href item/getURL;
+		                           title item/Description">
+		            <span tal:replace="item/pretty_title_or_id">
+		             Title
+		            </span>
+
+		        </a></h3>
+		  		<p tal:repeat="speaker item/getSpeakers" class="speaker">
+                    <span tal:replace="speaker">
+                    Robin Dunbar (Prof of Evolutionary  Anthropology, and Director
+                    of the Institute of Cognitive &amp; Evolutionary Anthropology,  Oxford)
+                    </span><br />
+                </p>
+			    <p  class="startdate" tal:condition="item_startdate">
+				<span tal:replace="item_formatted_startdate" /> - <span tal:replace="item_formatted_starttime"/></p> 
+            </li>
+
+        </tal:block>
+    </tal:repeat> 
+</ul>
+</div> 
+</tal:snippet>
+  				
+<tal:comment replace="nothing">News Highlight Listing</tal:comment>
+<tal:snippet condition="python: snippet=='news_highlight'"
+             define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+<div class="news">
+    <tal:news tal:repeat="item results">
+	<ul>
+    <!-- this is the first item -->	
+          <tal:firstitem condition="repeat/item/start">
+            <tal:block tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+								   item_url item/getURL|item/absolute_url;
+		                           item_id item/getId|item/id;
+		                           item_title_or_id item/pretty_title_or_id;
+		                           item_description item/Description;
+		                           item_type item/portal_type;
+		                           item_type_title item/Type;
+								   item_object python:item.getObject()">
+
+		        <li>
+
+		            <h3><a href="#"
+		               tal:attributes="href item_url"
+		               tal:content="item_title_or_id">
+		                Item Title
+		            </a></h3>
+					<p> <a href="#" tal:attributes="href item/getURL;">
+			              <img 
+			                   tal:condition="exists:item_object/image_thumb"
+			                   tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='newsimage')" />
+			          </a><span tal:replace="structure item_description" /> <a href="#"
+				                   tal:attributes="href item/getURL;
+				                                   title item/Description">Read more ...
+				              </a></p>	
+
+		        </li>
+
+		    </tal:block>
+ 
+       </tal:firstitem>
+
+<!-- now show all the rest -->
+
+ <tal:notfirstitem condition="not: repeat/item/start">
+
+<li>
+    
+     <h3><a href="#" class="arrowtitle"
+        tal:attributes="href item/getURL;
+                        title item/Description">
+
+         <span tal:replace="item/pretty_title_or_id">
+          Title
+          </span>
+         
+     </a></h3>
+ </li>
+ </tal:notfirstitem>
+</ul> 
+
+
+ </tal:news>
+</div>
+</tal:snippet>
+         				
+          				
+     
+      </metal:listing_block_snippets>  
+    </body>
+</html>

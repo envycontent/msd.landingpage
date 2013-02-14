@@ -1,0 +1,48 @@
+<metal:banners use-macro="context/@@banner-base/macros/banners">
+    <metal:banner fill-slot="banner_body">
+    <div class="banner-tabbed">
+        <a tal:condition="python:'image' in elements"
+            tal:attributes="href banner/getRemoteUrl;
+                title banner/Title;"
+                class="carousel-image"
+			tal:define="size python:banner.getSpanSize(settings.width)-6">
+			<img tal:attributes="src string:${banner/absolute_url}/image_image-${size}" /> 
+        </a>
+        <div tal:define="text banner/getText|nothing;" 
+            tal:condition="python:'title' in elements or ('text' in elements and text)"
+            class="carousel-text">
+            <a tal:condition="python:'title' in elements"
+                tal:attributes="href banner/getRemoteUrl;"
+                tal:content="banner/Title"
+                class="carousel-title">
+                Banner titleimage.
+            </a>
+            <div tal:condition="python:text and 'text' in elements"
+                tal:content="structure text"
+                class="carousel-body">
+                Body text
+            </div>
+        </div>
+        <a tal:attributes="href banner/getRemoteUrl;"
+            class="carousel-structural-link">
+        </a>
+    </div>
+    </metal:banner>
+</metal:banners>
+
+
+<metal:pager metal:use-macro="context/@@pager-base/macros/pager">
+    <metal:pageritem fill-slot="pager_item_body">
+        <div class="carousel-pager-tab">
+        <div tal:attributes="class string:carousel-pager-item carousel-pager-item-${repeat/banner/number} carousel-pager-item-classic span-6">
+            <h3 class="carousel-tab-title" tal:content="banner/Title">Banner Title</h3>
+            <div tal:define="text banner/getText;" 
+                tal:condition="text"
+                tal:content="structure text"
+                class="carousel-tab-description">
+                Body text
+            </div>
+        </div>
+        </div>
+    </metal:pageritem>
+</metal:pager>
