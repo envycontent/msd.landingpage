@@ -43,11 +43,13 @@ class Layout1(LayoutView):
                                 Block.HORIZONTAL, 
                                 (24, 18, 12), 
                                 css_classes=["layoutcolumn span-24 last",
-                                             "layoutcolumn span-18 last"],), 
+                                             "layoutcolumn span-18 last",
+                                             "layoutcolumn span-12 last"],), 
                           Block(Block.HORIZONTAL, 
                                 (24, 18, 12), 
                                 css_classes=["layoutcolumn span-24 last",
-                                             "layoutcolumn span-18 last"],) ]
+                                             "layoutcolumn span-18 last",
+                                             "layoutcolumn span-12 last"],) ]
     
 class Layout2(LayoutView):
     """
@@ -255,3 +257,43 @@ class Layout9(LayoutView):
                         ]
             
     show_portlets = False
+    
+class Layout10(LayoutView):
+    """
+    SampleLayout browser view
+    """
+    icon = "layout1.png"
+    title = _(u"Five horizontal")
+
+    # blocks are defined by Block objects
+    # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
+    block_definitions = [ Block(Block.HORIZONTAL, 
+                                (24, 18, 12), 
+                                css_classes=["layoutcolumn span-24 last",
+                                             "layoutcolumn span-18 last",
+                                            "layoutcolumn span-12 last"],
+                                ), 
+                          Block(
+                                Block.HORIZONTAL, 
+                                (24, 18, 12), 
+                                css_classes=["layoutcolumn span-24 last",
+                                             "layoutcolumn span-18 last",
+                                             "layoutcolumn span-12 last"],), 
+                         Block(
+                                 Block.HORIZONTAL, 
+                                 (24, 18, 12), 
+                                 css_classes=["layoutcolumn span-24 last",
+                                              "layoutcolumn span-18 last",
+                                              "layoutcolumn span-12 last"],),
+                        Block(
+                                  Block.HORIZONTAL, 
+                                  (24, 18, 12), 
+                                  css_classes=["layoutcolumn span-24 last",
+                                               "layoutcolumn span-18 last",
+                                               "layoutcolumn span-12 last"],), 
+
+                          Block(Block.HORIZONTAL, 
+                                (24, 18, 12), 
+                                css_classes=["layoutcolumn span-24 last",
+                                             "layoutcolumn span-18 last",
+                                             "layoutcolumn span-12 last"],) ]
