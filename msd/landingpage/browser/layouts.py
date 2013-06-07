@@ -1,5 +1,5 @@
 """
-
+    
     Available default layout view renderers.
 
 """
@@ -33,24 +33,24 @@ class Layout1(LayoutView):
     
     # blocks are defined by Block objects
     # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
-    block_definitions = [ Block(Block.HORIZONTAL, 
-                                (24, 18, 12), 
+    block_definitions = [ Block(Block.HORIZONTAL,
+                                (24, 18, 12),
                                 css_classes=["layoutcolumn span-24 last",
                                              "layoutcolumn span-18 last",
                                             "layoutcolumn span-12 last"],
-                                ), 
+                                ),
                           Block(
-                                Block.HORIZONTAL, 
-                                (24, 18, 12), 
+                                Block.HORIZONTAL,
+                                (24, 18, 12),
                                 css_classes=["layoutcolumn span-24 last",
                                              "layoutcolumn span-18 last",
-                                             "layoutcolumn span-12 last"],), 
-                          Block(Block.HORIZONTAL, 
-                                (24, 18, 12), 
+                                             "layoutcolumn span-12 last"],),
+                          Block(Block.HORIZONTAL,
+                                (24, 18, 12),
                                 css_classes=["layoutcolumn span-24 last",
                                              "layoutcolumn span-18 last",
                                              "layoutcolumn span-12 last"],) ]
-    
+
 class Layout2(LayoutView):
     """
     SampleLayout browser view
@@ -60,13 +60,13 @@ class Layout2(LayoutView):
     
     
     block_definitions = [ Block(Block.VERTICAL, [8,6], css_classes=["layoutcolumn span-8",
-                                                                    "layoutcolumn span-6"],), 
+                                                                    "layoutcolumn span-6"],),
                           Block(Block.VERTICAL, [8,6], css_classes=["layoutcolumn span-8",
-                                                                    "layoutcolumn span-6"],), 
+                                                                    "layoutcolumn span-6"],),
                           Block(Block.VERTICAL, [8,6], css_classes=["layoutcolumn span-8 last",
                                                                     "layoutcolumn span-6 last"],) ]
-    
-        
+
+
 class Layout3(LayoutView):
     """
     SampleLayout browser view
@@ -76,26 +76,26 @@ class Layout3(LayoutView):
     
     # blocks are defined by Block objects
     # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
-    block_definitions = [ Block(Block.HORIZONTAL, 
-                                [18], 
+    block_definitions = [ Block(Block.HORIZONTAL,
+                                [18],
                                 css_classes=["layoutcolumn span-18"],
-                                ), 
-                          Block(Block.VERTICAL, 
-                                [6], 
-                                css_classes=["layoutcolumn span-6"],), 
-                          Block(Block.VERTICAL, 
-                                [6], 
+                                ),
+                          Block(Block.VERTICAL,
+                                [6],
                                 css_classes=["layoutcolumn span-6"],),
-                          Block(Block.VERTICAL, 
-                                [6], 
-                                css_classes=["last layoutcolumn span-6"],), 
-                          Block(Block.VERTICAL, 
-                                [6], 
+                          Block(Block.VERTICAL,
+                                [6],
+                                css_classes=["layoutcolumn span-6"],),
+                          Block(Block.VERTICAL,
+                                [6],
+                                css_classes=["last layoutcolumn span-6"],),
+                          Block(Block.VERTICAL,
+                                [6],
                                 css_classes=["last layoutcolumn span-6"],),
                         ]
-            
-    show_portlets = False
     
+    show_portlets = False
+
 class Layout4(LayoutView):
     """
     SampleLayout browser view
@@ -105,24 +105,24 @@ class Layout4(LayoutView):
     
     # blocks are defined by Block objects
     # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
-    block_definitions = [ Block(Block.HORIZONTAL, 
-                                [12], 
+    block_definitions = [ Block(Block.HORIZONTAL,
+                                [12],
                                 css_classes=["layoutcolumn span-12"],
-                                ), 
-                          Block(Block.VERTICAL, 
-                                [12], 
-                                css_classes=["last layoutcolumn span-12"],), 
-                          Block(Block.VERTICAL, 
-                                [12], 
+                                ),
+                          Block(Block.VERTICAL,
+                                [12],
+                                css_classes=["last layoutcolumn span-12"],),
+                          Block(Block.VERTICAL,
+                                [12],
                                 css_classes=["layoutcolumn span-12"],),
-                          Block(Block.VERTICAL, 
-                                [12], 
-                                css_classes=["last layoutcolumn span-12"],), 
-                          Block(Block.VERTICAL, 
-                                [12], 
+                          Block(Block.VERTICAL,
+                                [12],
+                                css_classes=["last layoutcolumn span-12"],),
+                          Block(Block.VERTICAL,
+                                [12],
                                 css_classes=["last layoutcolumn span-12"],),
                         ]
-            
+    
     show_portlets = False
 
 class Layout5(LayoutView):
@@ -134,24 +134,24 @@ class Layout5(LayoutView):
     
     # blocks are defined by Block objects
     # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
-    block_definitions = [ Block(Block.HORIZONTAL, 
-                                [18], 
+    block_definitions = [ Block(Block.HORIZONTAL,
+                                [18],
                                 css_classes=["last layoutcolumn span-18"],
-                                ), 
-                          Block(Block.VERTICAL, 
-                                [18], 
-                                css_classes=["last layoutcolumn span-18"],), 
-                          Block(Block.VERTICAL, 
-                                [18], 
+                                ),
+                          Block(Block.VERTICAL,
+                                [18],
                                 css_classes=["last layoutcolumn span-18"],),
-                          Block(Block.VERTICAL, 
-                                [6], 
-                                css_classes=["last layoutcolumn span-6"],), 
-                          Block(Block.VERTICAL, 
-                                [6], 
+                          Block(Block.VERTICAL,
+                                [18],
+                                css_classes=["last layoutcolumn span-18"],),
+                          Block(Block.VERTICAL,
+                                [6],
+                                css_classes=["last layoutcolumn span-6"],),
+                          Block(Block.VERTICAL,
+                                [6],
                                 css_classes=["last layoutcolumn span-6"],),
                         ]
-            
+    
     show_portlets = False
 
 class Layout6(LayoutView):
@@ -163,24 +163,24 @@ class Layout6(LayoutView):
     
     # blocks are defined by Block objects
     # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
-    block_definitions = [ Block(Block.HORIZONTAL, 
-                                [12], 
+    block_definitions = [ Block(Block.HORIZONTAL,
+                                [12],
                                 css_classes=["layoutcolumn span-12"],
-                                ), 
-                          Block(Block.VERTICAL, 
-                                [6], 
-                                css_classes=["layoutcolumn span-6"],), 
-                          Block(Block.VERTICAL, 
-                                [6], 
+                                ),
+                          Block(Block.VERTICAL,
+                                [6],
+                                css_classes=["layoutcolumn span-6"],),
+                          Block(Block.VERTICAL,
+                                [6],
                                 css_classes=["last layoutcolumn span-6"],),
-                          Block(Block.VERTICAL, 
-                                [6], 
-                                css_classes=["last layoutcolumn span-6"],), 
-                          Block(Block.VERTICAL, 
-                                [6], 
+                          Block(Block.VERTICAL,
+                                [6],
+                                css_classes=["last layoutcolumn span-6"],),
+                          Block(Block.VERTICAL,
+                                [6],
                                 css_classes=["last layoutcolumn span-6"],),
                         ]
-            
+    
     show_portlets = False
 
 class Layout7(LayoutView):
@@ -192,24 +192,24 @@ class Layout7(LayoutView):
     
     # blocks are defined by Block objects
     # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
-    block_definitions = [ Block(Block.HORIZONTAL, 
-                                [16], 
+    block_definitions = [ Block(Block.HORIZONTAL,
+                                [16],
                                 css_classes=["layoutcolumn span-16"],
-                                ), 
-                          Block(Block.VERTICAL, 
-                                [8], 
-                                css_classes=["layoutcolumn span-8"],), 
-                          Block(Block.VERTICAL, 
-                                [8], 
+                                ),
+                          Block(Block.VERTICAL,
+                                [8],
+                                css_classes=["layoutcolumn span-8"],),
+                          Block(Block.VERTICAL,
+                                [8],
                                 css_classes=["last layoutcolumn span-8"],),
-                          Block(Block.VERTICAL, 
-                                [8], 
-                                css_classes=["last layoutcolumn span-8"],), 
-                          Block(Block.VERTICAL, 
-                                [8], 
+                          Block(Block.VERTICAL,
+                                [8],
+                                css_classes=["last layoutcolumn span-8"],),
+                          Block(Block.VERTICAL,
+                                [8],
                                 css_classes=["last layoutcolumn span-8"],),
                         ]
-            
+    
     show_portlets = False
 
 class Layout8(LayoutView):
@@ -221,24 +221,24 @@ class Layout8(LayoutView):
     
     # blocks are defined by Block objects
     # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
-    block_definitions = [ Block(Block.HORIZONTAL, 
-                                [24], 
+    block_definitions = [ Block(Block.HORIZONTAL,
+                                [24],
                                 css_classes=["layoutcolumn span-24"],
-                                ), 
-                          Block(Block.VERTICAL, 
-                                [8], 
-                                css_classes=["layoutcolumn span-8"],), 
-                          Block(Block.VERTICAL, 
-                                [8], 
+                                ),
+                          Block(Block.VERTICAL,
+                                [8],
                                 css_classes=["layoutcolumn span-8"],),
-                          Block(Block.VERTICAL, 
-                                [8], 
-                                css_classes=["last layoutcolumn span-8"],), 
-                          Block(Block.VERTICAL, 
-                                [8], 
+                          Block(Block.VERTICAL,
+                                [8],
+                                css_classes=["layoutcolumn span-8"],),
+                          Block(Block.VERTICAL,
+                                [8],
+                                css_classes=["last layoutcolumn span-8"],),
+                          Block(Block.VERTICAL,
+                                [8],
                                 css_classes=["last layoutcolumn span-8"],),
                         ]
-            
+    
     show_portlets = False
 
 class Layout9(LayoutView):
@@ -250,50 +250,144 @@ class Layout9(LayoutView):
     
     # blocks are defined by Block objects
     # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
-    block_definitions = [ Block(Block.VERTICAL, 
-                                [24], 
+    block_definitions = [ Block(Block.VERTICAL,
+                                [24],
                                 css_classes=["layoutcolumn"],
-                                ), 
+                                ),
                         ]
-            
-    show_portlets = False
     
+    show_portlets = False
+
 class Layout10(LayoutView):
     """
     SampleLayout browser view
     """
     icon = "layout1.png"
     title = _(u"Five horizontal")
-
+    
     # blocks are defined by Block objects
     # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
-    block_definitions = [ Block(Block.HORIZONTAL, 
-                                (24, 18, 12), 
+    block_definitions = [ Block(Block.HORIZONTAL,
+                                (24, 18, 12),
                                 css_classes=["layoutcolumn span-24 last",
                                              "layoutcolumn span-18 last",
                                             "layoutcolumn span-12 last"],
-                                ), 
+                                ),
                           Block(
-                                Block.HORIZONTAL, 
-                                (24, 18, 12), 
+                                Block.HORIZONTAL,
+                                (24, 18, 12),
                                 css_classes=["layoutcolumn span-24 last",
                                              "layoutcolumn span-18 last",
-                                             "layoutcolumn span-12 last"],), 
+                                             "layoutcolumn span-12 last"],),
                          Block(
-                                 Block.HORIZONTAL, 
-                                 (24, 18, 12), 
+                                 Block.HORIZONTAL,
+                                 (24, 18, 12),
                                  css_classes=["layoutcolumn span-24 last",
                                               "layoutcolumn span-18 last",
                                               "layoutcolumn span-12 last"],),
                         Block(
-                                  Block.HORIZONTAL, 
-                                  (24, 18, 12), 
+                                  Block.HORIZONTAL,
+                                  (24, 18, 12),
                                   css_classes=["layoutcolumn span-24 last",
                                                "layoutcolumn span-18 last",
-                                               "layoutcolumn span-12 last"],), 
-
-                          Block(Block.HORIZONTAL, 
-                                (24, 18, 12), 
+                                               "layoutcolumn span-12 last"],),
+                          
+                          Block(Block.HORIZONTAL,
+                                (24, 18, 12),
                                 css_classes=["layoutcolumn span-24 last",
                                              "layoutcolumn span-18 last",
                                              "layoutcolumn span-12 last"],) ]
+
+class Layout11(LayoutView):
+     """
+     SampleLayout browser view
+     """
+     title = _(u"Newsletter")
+     icon = "layout4.png"
+     
+     # blocks are defined by Block objects
+     # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
+     block_definitions = [ Block(Block.HORIZONTAL,
+                                 [24],
+                                 css_classes=["last layoutcolumn span-24"],
+                                 ),
+                            Block(Block.HORIZONTAL,
+                                  [24],
+                                  css_classes=["last layoutcolumn span-24"],
+                                          ),
+                           Block(Block.VERTICAL,
+                                 [12],
+                                 css_classes=["layoutcolumn span-12"],),
+                           Block(Block.VERTICAL,
+                                 [12],
+                                 css_classes=["last layoutcolumn span-12"],),
+                           
+                           Block(Block.HORIZONTAL,
+                                  [24],
+                                  css_classes=["last layoutcolumn span-24"],
+                                  ),
+                         ]
+     
+     show_portlets = False
+
+class Layout12(LayoutView):
+     """
+     SampleLayout browser view
+     """
+     icon = "layout1.png"
+     title = _(u"Seven horizontal")
+     
+     # blocks are defined by Block objects
+     # parameters are: direction, (width without portlets, width with one portlet column, width with two portlet columns)
+     block_definitions = [ Block(Block.HORIZONTAL,
+                                 (24,18,12),
+                                 css_classes=["layoutcolumn span-24 last",
+                                               "layoutcolumn span-18 last",
+                                                "layoutcolumn span-12 last"],
+                                 
+                                 ),
+                           Block(
+                                 Block.HORIZONTAL,
+                                 (24,18,12),
+                                 css_classes=["layoutcolumn span-24 last",
+                                             "layoutcolumn span-18 last",
+                                              "layoutcolumn span-12 last"],
+                                              ),
+                           Block(
+                                    Block.HORIZONTAL,
+                                    (24,18,12),
+                                    css_classes=["layoutcolumn span-24 last",
+                                                 "layoutcolumn span-18 last",
+                                                  "layoutcolumn span-12 last"],
+                                                 ),
+                           Block(
+                                   Block.HORIZONTAL,
+                                   (24,18,12),
+                                   css_classes=["layoutcolumn span-24 last",
+                                                "layoutcolumn span-18 last",
+                                                 "layoutcolumn span-12 last"],
+                                                ),
+                            Block(
+                                  Block.HORIZONTAL,
+                                  (24,18,12),
+                                  css_classes=["layoutcolumn span-24 last",
+                                                "layoutcolumn span-18 last",
+                                                 "layoutcolumn span-12 last"],
+                                               ),
+                            Block(
+                                 Block.HORIZONTAL,
+                                 (24,18,12),
+                                 css_classes=["layoutcolumn span-24 last",
+                                               "layoutcolumn span-18 last",
+                                                "layoutcolumn span-12 last"],
+                                              ),
+                              Block(
+                                    Block.HORIZONTAL,
+                                    (24,18,12),
+                                    css_classes=["layoutcolumn span-24 last",
+                                                  "layoutcolumn span-18 last",
+                                                   "layoutcolumn span-12 last"],
+                                                 ), ]
+     
+     show_portlets = False
+
