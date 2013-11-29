@@ -112,7 +112,14 @@ class BaseBlockView(grok.View):
         for link in links:
             if "href" in link.attrib and not self._is_external_link(link.attrib["href"]):
                 href = link.attrib["href"]    
-                link.attrib["href"] = urlparse.urljoin(context.absolute_url(), href) 
+                link.attrib["href"] = urlparse.urljoin(context.absolute_url(), href)
+                
+        images = dom.iter("img")
+        
+        for image in images:
+            if "src" in image.attrib and not self._is_external_link(image.attrib["src"]):
+                src = image.attrib["src"]
+                image.attrib["src"] = urlparse.urljoin(context.absolute_url(), src)
                 
         transformed = etree.tostring(dom, encoding="UTF-8")
         
